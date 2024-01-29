@@ -42,9 +42,9 @@
     owner: "{{ openssl_file_owner }}"
     group: "{{ openssl_file_group }}"
 
-- name: Include create.yml
-  ansible.builtin.include_tasks:
-    file: create.yml
+#- name: Include create.yml
+#  ansible.builtin.include_tasks:
+#    file: create.yml
 #  loop: "{{ test_loop }}"
 #  loop_control:
 #    label: "{{ item }}"
@@ -52,3 +52,8 @@
 #    - openssl_items is defined
 #    - openssl_items | length > 0
 
+- name: Create directory
+  ansible.builtin.file:
+    path: "/home/{{ item }}"
+    state: directory
+  loop: "{{ test_loop }}"
