@@ -15,5 +15,6 @@
   community.crypto.x509_certificate:
     path: "{{ openssl_csr_directory }}/root-ca.pem"
     privatekey_path: "{{ openssl_key_directory }}/root-ca-key.pem"
+    entrust_not_after: 730d
     provider: selfsigned
 
