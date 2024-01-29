@@ -6,12 +6,12 @@
     - b
     - c
 
-#- name: create | Create ssl key
-#  community.crypto.openssl_privatekey:
-#    path: "{{ openssl_key_directory }}/{{ outher }}.key"
-#    mode: "600"
-#    owner: "{{ openssl_file_owner }}"
-#    group: "{{ openssl_file_group }}"
+- name: create | Create ssl key
+  community.crypto.openssl_privatekey:
+    path: "{{ openssl_key_directory }}/{{ outer_item }}.key"
+    mode: "600"
+    owner: "{{ openssl_file_owner }}"
+    group: "{{ openssl_file_group }}"
 
 #- name: create | Create ssl csr
 #  community.crypto.openssl_csr:
