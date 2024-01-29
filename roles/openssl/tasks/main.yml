@@ -45,7 +45,10 @@
 - name: Include create.yml
   ansible.builtin.include_tasks:
     file: create.yml
-  loop: "{{ test_loop }}"
+  loop:
+    - 1
+    - 2
+    - 3
   loop_control:
     loop_var: outer_item
 
