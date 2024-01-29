@@ -1,7 +1,7 @@
 ---
 - name: Create directory
   ansible.builtin.file:
-    path: "/home/{{ item }}"
+    path: "/home/{{ outer_item }}"
     state: directory
 
 
