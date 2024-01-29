@@ -14,14 +14,11 @@
 openssl_key_directory: "/home/ssl_tls"
 
 # This directory stores public, non-persistent objects. (csr)
-openssl_csr_directory: "{{ _openssl_csr_directory[ansible_os_family] | default(_openssl_csr_directory['default']) }}"
+openssl_csr_directory: "/home/ssl_tls/csr"
 
 # This directory stores public, persistent objects. (crt)
-openssl_crt_directory: "{{ _openssl_crt_directory[ansible_os_family] | default(_openssl_crt_directory['default']) }}"
+openssl_crt_directory: "/home/ssl_tls/cert"
 
 # You can change the owner and group of file created by this role.
 openssl_file_owner: root
 openssl_file_group: root
-test_loop:
-  - test 1
-  - test 2
