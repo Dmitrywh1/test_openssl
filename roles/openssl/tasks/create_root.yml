@@ -1,7 +1,7 @@
 - name: Generate RSA private key
   community.crypto.openssl_privatekey:
     path: "{{ openssl_csr_directory }}/root-ca-key.pem"
-    type: rsa
+    type: RSA
     size: 2048
 
 - name: Generate self-signed certificate
