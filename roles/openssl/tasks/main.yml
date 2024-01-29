@@ -47,7 +47,7 @@
     file: create.yml
   loop: "{{ test_loop }}"
   loop_control:
-    loop_var: outher
+    loop_var: outer_item
   when:
     - openssl_items is defined
     - openssl_items | length > 0
