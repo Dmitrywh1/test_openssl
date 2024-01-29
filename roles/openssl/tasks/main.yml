@@ -46,9 +46,9 @@
   ansible.builtin.include_tasks:
     file: create.yml
   loop: "{{ test_loop }}"
-  loop_control:
-    label: "{{ item }}"
-  when:
-    - openssl_items is defined
-    - openssl_items | length > 0
+#  loop_control:
+#    label: "{{ item }}"
+#  when:
+#    - openssl_items is defined
+#    - openssl_items | length > 0
 

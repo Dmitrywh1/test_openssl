@@ -1,7 +1,7 @@
 ---
 - name: Create directory
   ansible.builtin.file:
-    path: "/home/{{ item.name }}"
+    path: "/home/{{ item }}"
     state: directory
 
 #- name: create | Create ssl key
