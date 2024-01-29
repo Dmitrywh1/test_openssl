@@ -42,7 +42,7 @@
     owner: "{{ openssl_file_owner }}"
     group: "{{ openssl_file_group }}"
 
-- import_tasks: create.yml
+- include_tasks: create.yml
   loop: "{{ test_loop }}"
   loop_control:
     loop_var: outer_item
