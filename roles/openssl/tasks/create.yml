@@ -1,12 +1,16 @@
 ---
+- name: Create directory
+  ansible.builtin.file:
+    path: "/home/{{ item.name }}"
+    state: directory
 
-- name: create | Create ssl key
-  community.crypto.openssl_privatekey:
-    path: "{{ openssl_key_directory }}/{{ item.name }}.pem"
-    mode: "600"
-  loop: "{{ openssl_items }}"
-  loop_control:
-    label: "{{ item.name }}"
+#- name: create | Create ssl key
+#  community.crypto.openssl_privatekey:
+#    path: "{{ openssl_key_directory }}/{{ item.name }}.pem"
+#    mode: "600"
+#  loop: "{{ openssl_items }}"
+#  loop_control:
+#    label: "{{ item.name }}"
 
 #- name: create | Create ssl csr
 #  community.crypto.openssl_csr:
