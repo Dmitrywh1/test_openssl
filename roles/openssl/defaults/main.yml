@@ -11,13 +11,13 @@
 # location is set in `vars/main.yml`.
 
 # This directory stores sensitive objects. (key, p12 and pkcs12)
-openssl_key_directory: "/home/ssl_tls"
+openssl_key_directory: "/home/whoisthere"
 
 # This directory stores public, non-persistent objects. (csr)
-openssl_csr_directory: "/home/ssl_tls/csr"
+openssl_csr_directory: "/home/whoisthere"
 
 # This directory stores public, persistent objects. (crt)
-openssl_crt_directory: "/home/ssl_tls/cert"
+openssl_crt_directory: "/home/whoisthere"
 
 # You can change the owner and group of file created by this role.
 openssl_file_owner: root

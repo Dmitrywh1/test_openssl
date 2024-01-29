@@ -16,21 +16,21 @@
 
 - name: Generate root CA private key
   openssl_privatekey:
-    path: /home/who/root-ca-key.pem
+    path: "{{ openssl_key_directory }}/root-ca-key.pem"
     size: 2048
 
 - name: create | Create ssl csr
   community.crypto.openssl_csr:
-    path: /home/who/root-ca-key.csr
-    privatekey_path: /home/who/root-ca-key.pem
+    path: "{{ openssl_csr_directory }}/root-ca-key.csr"
+    privatekey_path: "{{ openssl_key_directory }}/root-ca-key.pem"
     common_name: root.dns.a-record
     mode: "640"
 
 - name: Generate root CA certificate
   openssl_certificate:
-    path: /home/who/root-ca.pem
-    privatekey_path: /home/who/root-ca-key.pem
-    csr_path: /home/who/root-ca-key.csr
+    path: "{{ openssl_csr_directory }}/root-ca.pem"
+    privatekey_path: "{{ openssl_key_directory }}/root-ca-key.pem"
+    csr_path: "{{ openssl_csr_directory }}/root-ca-key.csr"
     subject: "/C=RU/ST=RU/L=MOSCOW/O=google/OU=UNIT/CN=root.dns.a-record"
     key_usage: "keyCertSign, cRLSign"
     provider: selfsigned
