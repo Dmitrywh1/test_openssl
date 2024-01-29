@@ -16,12 +16,12 @@
 
 - name: Generate root CA private key
   openssl_privatekey:
-    path: /path/to/root-ca-key.pem
+    path: /home/root-ca-key.pem
     size: 2048
 
 - name: Generate root CA certificate
   openssl_certificate:
-    path: /path/to/root-ca.pem
+    path: /home/root-ca.pem
     privatekey_path: /path/to/root-ca-key.pem
     subject: "/C=RU/ST=RU/L=MOSCOW/O=google/OU=UNIT/CN=root.dns.a-record"
     key_usage: "keyCertSign, cRLSign"
