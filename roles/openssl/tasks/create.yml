@@ -1,7 +1,7 @@
 
 - name: create | Create ssl key
   community.crypto.openssl_privatekey:
-    path: "{{ openssl_key_directory }}/{{ item.name }}.key"
+    path: "{{ openssl_key_directory }}/{{ openssl }}.key"
     mode: "600"
     owner: "{{ openssl_file_owner }}"
     group: "{{ openssl_file_group }}"
