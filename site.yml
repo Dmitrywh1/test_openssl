@@ -5,6 +5,5 @@
 
   roles:
     - role: openssl
-      openssl_items:
-        - my_openssl_key
+
 
