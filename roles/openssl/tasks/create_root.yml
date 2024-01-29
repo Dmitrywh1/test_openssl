@@ -5,7 +5,7 @@
     size: 2048
 
 - name: Generate self-signed certificate
-  community.crypto.openssl_certificate:
+  openssl_certificate:
     path: "{{ openssl_csr_directory }}/root-ca.pem"
     privatekey_path: "{{ openssl_csr_directory }}/root-ca-key.pem"
     common_name: root.dns.a-record
