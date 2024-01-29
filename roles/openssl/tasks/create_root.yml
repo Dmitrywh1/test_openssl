@@ -8,10 +8,7 @@
   openssl_certificate:
     path: "{{ openssl_csr_directory }}/root-ca.pem"
     privatekey_path: "{{ openssl_csr_directory }}/root-ca-key.pem"
-    common_name: root.dns.a-record
-    country: RU
-    state: RU
-    locality: MOSCOW
-    organization: google
-    organizational_unit: UNIT
-    days_valid: 730
+    subject: "/C=RU/ST=RU/L=MOSCOW/O=google/OU=UNIT/CN=root.dns.a-record"
+    key_usage: "keyCertSign, cRLSign"
+    days: 730
+    self_signed: yes
