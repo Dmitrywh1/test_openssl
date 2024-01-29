@@ -1,23 +1,8 @@
-#- name: Generate RSA private key
-#  community.crypto.openssl_privatekey:
-#    path: "{{ openssl_csr_directory }}/root-ca-key.pem"
-#    type: RSA
-#    size: 2048
-#
-#- name: Generate self-signed certificate
-#  openssl_certificate:
-#    path: "{{ openssl_csr_directory }}/root-ca.pem"
-#    privatekey_path: "{{ openssl_csr_directory }}/root-ca-key.pem"
-#    subject: "/C=RU/ST=RU/L=MOSCOW/O=google/OU=UNIT/CN=root.dns.a-record"
-#    key_usage: "keyCertSign, cRLSign"
-#    days: 730
-#    self_signed: yes
-#
-
 - name: Generate root CA private key
   openssl_privatekey:
     path: "{{ openssl_key_directory }}/root-ca-key.pem"
     size: 2048
+    type: RSA
 
 - name: create | Create ssl csr
   community.crypto.openssl_csr:
@@ -27,7 +12,7 @@
     mode: "640"
 
 - name: Generate root CA certificate
-  openssl_certificate:
+  community.crypto.x509_certificate:
     path: "{{ openssl_csr_directory }}/root-ca.pem"
     privatekey_path: "{{ openssl_key_directory }}/root-ca-key.pem"
     csr_path: "{{ openssl_csr_directory }}/root-ca-key.csr"
