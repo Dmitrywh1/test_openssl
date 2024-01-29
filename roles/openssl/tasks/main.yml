@@ -45,9 +45,9 @@
 - name: Include create.yml
   ansible.builtin.include_tasks:
     file: create.yml
-  loop: "{{ openssl_items.name }}"
+  loop: "{{ openssl_items }}"
   loop_control:
-    label: openssl
+    loop_var: openssl
   when:
     - openssl_items is defined
     - openssl_items | length > 0
