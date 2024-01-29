@@ -15,8 +15,5 @@
   community.crypto.x509_certificate:
     path: "{{ openssl_csr_directory }}/root-ca.pem"
     privatekey_path: "{{ openssl_key_directory }}/root-ca-key.pem"
-    csr_path: "{{ openssl_csr_directory }}/root-ca-key.csr"
-    subject: "/C=RU/ST=RU/L=MOSCOW/O=google/OU=UNIT/CN=root.dns.a-record"
-    key_usage: "keyCertSign, cRLSign"
     provider: selfsigned
 
