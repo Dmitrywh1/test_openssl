@@ -42,13 +42,8 @@
     owner: "{{ openssl_file_owner }}"
     group: "{{ openssl_file_group }}"
 
-- name: Include create.yml
-  ansible.builtin.include_tasks:
-    file: create.yml
-  loop:
-    - 1
-    - 2
-    - 3
+- ansible.builtin.include_tasks: create.yml
+  loop: "{{ test_loop }}"
   loop_control:
     loop_var: outer_item
 
