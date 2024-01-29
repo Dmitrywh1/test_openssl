@@ -3,7 +3,7 @@
   ansible.builtin.file:
     path: "/home/{{ item }}"
     state: directory
-  loop: "{{ test_loop }}"
+
 
 #- name: create | Create ssl key
 #  community.crypto.openssl_privatekey:

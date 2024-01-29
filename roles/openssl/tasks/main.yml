@@ -43,7 +43,7 @@
     group: "{{ openssl_file_group }}"
 
 - import_tasks: create.yml
-#  loop: "{{ test_loop }}"
+  loop: "{{ test_loop }}"
 #  loop_control:
 #    label: "{{ item }}"
 #  when:
