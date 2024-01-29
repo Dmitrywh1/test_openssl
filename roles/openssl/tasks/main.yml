@@ -42,12 +42,21 @@
     owner: "{{ openssl_file_owner }}"
     group: "{{ openssl_file_group }}"
 
-- name: Include create.yml
-  ansible.builtin.include_tasks:
-    file: create.yml
+#- name: Include create.yml
+#  ansible.builtin.include_tasks:
+#    file: create.yml
+#  loop: "{{ test_loop }}"
+#  loop_control:
+#    loop_var: outher
+#  when:
+#    - openssl_items is defined
+#    - openssl_items | length > 0
+#
+
+- name: create | Create ssl key
+  community.crypto.openssl_privatekey:
+    path: "{{ openssl_key_directory }}/{{ outher }}.key"
+    mode: "600"
+    owner: "{{ openssl_file_owner }}"
+    group: "{{ openssl_file_group }}"
   loop: "{{ test_loop }}"
-  loop_control:
-    loop_var: outher
-  when:
-    - openssl_items is defined
-    - openssl_items | length > 0
