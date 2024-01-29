@@ -45,7 +45,7 @@
 - name: Include create.yml
   ansible.builtin.include_tasks:
     file: create.yml
-  with_items: "{{ test_loop }}"
+#  loop: "{{ test_loop }}"
 #  loop_control:
 #    label: "{{ item }}"
 #  when:
