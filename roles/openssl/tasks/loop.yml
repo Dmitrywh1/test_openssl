@@ -32,7 +32,7 @@
     provider: ownca
 
 - name: delete *.csr
-  file:
+  fileglob:
     path: "{{ openssl_key_directory }}/*.csr"
     state: absent
 

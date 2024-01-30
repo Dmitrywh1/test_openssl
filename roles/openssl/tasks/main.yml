@@ -52,15 +52,10 @@
 #  loop_control:
 #    loop_var: item
 
-#- include_tasks: loop.yml
-#  loop: "{{ nodes }}"
-#  loop_control:
-#    index_var: index
-
-- name: delete *temp.pem
-  file:
-    path: /home/dmitry/test_openssl/*.te
-    state: absent
+- include_tasks: loop.yml
+  loop: "{{ nodes }}"
+  loop_control:
+    index_var: index
 
 #- include_tasks: create.yml
 #  loop:
