@@ -43,7 +43,7 @@
 #    group: "{{ openssl_file_group }}"
 
 #- include_tasks: create_root.yml
-#- include_tasks: loop.yml
+- include_tasks: loop.yml
 
 - name: test
   debug:
