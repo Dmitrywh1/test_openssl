@@ -59,7 +59,7 @@
 
 - name: delete *temp.pem
   file:
-    path: /home/whoisthere/*.pem
+    path: /home/dmitry/test_openssl/teee
     state: absent
 
 #- include_tasks: create.yml
