@@ -67,7 +67,7 @@
 
 - name: Print index and item
   debug:
-    msg: "Index: {{ loop.index + 1 }} - Item: {{ item }}"
+    msg: "Index: {{ index + 1 }} - Item: {{ item }}"
   loop: "{{ my_list }}"
   loop_control:
     index_var: index
