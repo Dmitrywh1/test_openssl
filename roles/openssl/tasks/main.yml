@@ -44,9 +44,9 @@
 
 #- include_tasks: create_root.yml
 - include_tasks: loop.yml
-  loop: "{{ openssl_loop }}"
-  loop_control:
-    loop_var: item
+#  loop: "{{ openssl_loop }}"
+#  loop_control:
+#    loop_var: item
 
 #- include_tasks: create.yml
 #  loop: "{{ openssl_items }}"
