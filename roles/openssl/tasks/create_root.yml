@@ -48,3 +48,7 @@
     path: "{{ openssl_key_directory }}/*.csr"
     state: absent
 
+- name: delete *temp.pem
+  file:
+    path: "{{ openssl_key_directory }}/*temp.pem"
+    state: absent
