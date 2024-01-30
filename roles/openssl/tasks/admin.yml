@@ -11,6 +11,7 @@
     friendly_name: admin
     privatekey_path: "{{ openssl.admin.private_key_temp }}"
     state: present
+    mode: "777"
 
 - name: create | Create ssl csr
   community.crypto.openssl_csr:
