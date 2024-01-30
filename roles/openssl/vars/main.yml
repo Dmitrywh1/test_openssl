@@ -25,4 +25,7 @@ openssl:
 #    subject_alt_name: DNS:node1.dns.a-record
 
 
-
+my_list:
+  - item1
+  - item2
+  - item3

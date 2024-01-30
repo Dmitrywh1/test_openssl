@@ -65,8 +65,9 @@
 #  loop_control:
 #    loop_var: outer_item
 
-- name: Вывод порядкового номера элемента
+- name: Print index and item
   debug:
-    msg: "Порядковый номер {{ item.index }}: {{ item }}"
-  with_items: "{{ loop }}"
-
+    msg: "Index: {{ index }} - Item: {{ item }}"
+  loop: "{{ my_list }}"
+  loop_control:
+    ndex_var: index

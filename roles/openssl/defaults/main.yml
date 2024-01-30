@@ -37,7 +37,3 @@ nodes:
   - node1
   - node2
 
-loop:
-  - a
-  - b
-  - c
