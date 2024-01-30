@@ -52,11 +52,9 @@ openssl:
     cert: "{{ openssl_key_directory }}/admin.pem"
 
 openssl_loop:
-  - name: client
-    ca:
-      private_key_temp:
-        - "{{ openssl_key_directory }}/client-key-temp.pem"
-      private_key: "{{ openssl_key_directory }}/client-key.pem"
-      csr: "{{ openssl_key_directory }}/client.csr"
-      cert: "{{ openssl_key_directory }}/client.pem"
+  client:
+    private_key_temp: "{{ openssl_key_directory }}/client-key-temp.pem"
+    private_key: "{{ openssl_key_directory }}/client-key.pem"
+    csr: "{{ openssl_key_directory }}/client.csr"
+    cert: "{{ openssl_key_directory }}/client.pem"
 

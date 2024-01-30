@@ -1,9 +1,9 @@
 - name: Generate admin CA temp private key
   openssl_privatekey:
-    path: "{{ item.private_key_temp }}"
+    path: "{{ openssl_loop[item].private_key_temp }}"
     size: 2048
     type: RSA
-  loop: "{{ openssl_loop.ca }}"
+  loop: "{{ openssl_loop.keys() }}"
 
 - name: Convert private key to PKCS8 format
   community.crypto.openssl_privatekey_convert:
