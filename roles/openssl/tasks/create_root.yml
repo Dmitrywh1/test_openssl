@@ -1,33 +1,13 @@
 - name: Generate root CA private key
   openssl_privatekey:
-    path: "{{ openssl_key_directory }}/root-ca-key.pem"
+    path: "{{ openssl_root.private_key }}"
     size: 2048
     type: RSA
 
-- name: create | Create ssl csr
-  community.crypto.openssl_csr:
-    path: "{{ openssl_csr_directory }}/root-ca-key.csr"
-    privatekey_path: "{{ openssl_key_directory }}/root-ca-key.pem"
-    common_name: root.dns.a-record
-    mode: "640"
-
-- name: Create self-signed certificate
-  openssl_certificate:
-    path: /home/certificate.crt
-    privatekey_path: /path/to/private.key
-    privatekey_type: rsa
-    privatekey_passphrase: yourpassphrase
-    common_name: yourdomain.com
-    country_name: RU
-    state_or_province_name: RU
-    locality_name: MSK
-    organization_name: F
-    organizational_unit_name: d
-
 - name: Generate root CA certificate
   community.crypto.x509_certificate:
-    path: "{{ openssl_csr_directory }}/root-ca.pem"
-    privatekey_path: "{{ openssl_key_directory }}/root-ca-key.pem"
+    path: "{{ openssl_root.cert }}"
+    privatekey_path: "{{ openssl_root.private_key }}"
 #    selfsigned_not_after: 730d
     provider: selfsigned
 
