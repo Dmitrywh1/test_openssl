@@ -46,6 +46,7 @@ openssl:
     private_key: "{{ openssl_key_directory }}/root-ca-key.pem"
     cert: "{{ openssl_key_directory }}/root-ca.pem"
   admin:
+    private_key_temp: "{{ openssl_key_directory }}/admin-key-temp.pem"
     private_key: "{{ openssl_key_directory }}/admin-key.pem"
     csr: "{{ openssl_key_directory }}/admin.csr"
     cert: "{{ openssl_key_directory }}/admin.pem"

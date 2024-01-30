@@ -1,8 +1,15 @@
 - name: Generate root CA private key
   openssl_privatekey:
-    path: "{{ openssl.admin.private_key }}"
+    path: "{{ openssl.admin.private_key_temp }}"
     size: 2048
     type: RSA
+
+- name: Generate PKCS#12 file
+  community.crypto.openssl_pkcs12:
+    action: export
+    path: "{{ openssl.admin.private_key }}"
+    privatekey_path: "{{ openssl.admin.private_key_temp }}"
+    state: present
 
 - name: create | Create ssl csr
   community.crypto.openssl_csr:
