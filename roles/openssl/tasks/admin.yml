@@ -3,7 +3,6 @@
     path: "{{ openssl.admin.private_key }}"
     size: 2048
     type: RSA
-    format: pkcs8
 
 - name: create | Create ssl csr
   community.crypto.openssl_csr:
