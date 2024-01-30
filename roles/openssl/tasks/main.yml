@@ -57,14 +57,12 @@
 #  loop_control:
 #    loop_var: item
 
-- name: Generate CA temp private key
-  openssl_privatekey:
-    path: "{{ openssl_key_directory }}/node{{ index }}-key-temp.pem"
-    size: 2048
-    type: RSA
+- include_tasks: create.yml
   loop:
     - 1
     - 2
     - 3
+  loop_control:
+    loop_var: outer_item
 
 
