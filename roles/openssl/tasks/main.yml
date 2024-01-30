@@ -58,9 +58,12 @@
 #    index_var: index
 
 - name: delete *.csr
-  fileglob:
-    path: "{{ openssl_key_directory }}/*.csr"
+  file:
+    path: "{{ item.path }}"
     state: absent
+  with_fileglob:
+    - "{{ openssl_key_directory }}/*.csr"
+
 
 #- include_tasks: create.yml
 #  loop:
