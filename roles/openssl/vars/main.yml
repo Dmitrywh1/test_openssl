@@ -41,6 +41,8 @@ _openssl_crt_directory:
   Suse: /etc/ssl/certs
 
 
-openssl_root:
-  private_key: "{{ openssl_key_directory }}/root-ca-key.pem"
-  cert: "{{ openssl_csr_directory }}/root-ca.pem"
+openssl:
+  root:
+    private_key: "{{ openssl_key_directory }}/root-ca-key.pem"
+    cert: "{{ openssl_key_directory }}/root-ca.pem"
+
