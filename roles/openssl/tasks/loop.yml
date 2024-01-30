@@ -1,36 +1,75 @@
 - name: Generate CA temp private key
   openssl_privatekey:
-    path: "{{ openssl_loop[item].private_key_temp }}"
+    path: "{{ openssl_key_directory }}/node{{ item.index }}-key-temp.pem"
     size: 2048
     type: RSA
-  loop: "{{ openssl_loop.keys() | list  }}"
 
-- name: Convert private key to PKCS8 format
-  community.crypto.openssl_privatekey_convert:
-    src_path: "{{ openssl_loop[item].private_key_temp }}"
-    dest_path: "{{ openssl_loop[item].private_key }}"
-    format: pkcs8
-  loop: "{{ openssl_loop.keys() | list  }}"
 
-- name: Create ssl csr
-  community.crypto.openssl_csr:
-    path: "{{ openssl_loop[item].csr }}"
-    privatekey_path: "{{ openssl_loop[item].private_key }}"
-    country_name: "RU"
-    state_or_province_name : "RU"
-    locality_name: "MOSCOW"
-    organization_name: "test"
-    organizational_unit_name: "unit"
-    common_name: "{{ openssl_loop[item].subject_alt_name }}"
-    mode: "777"
-    subject_alt_name: "{{ openssl_loop[item].subject_alt_name }}"
-  loop: "{{ openssl_loop.keys() | list  }}"
+#- name: Convert private key to PKCS8 format
+#  community.crypto.openssl_privatekey_convert:
+#    src_path: "{{ openssl_loop[item].private_key_temp }}"
+#    dest_path: "{{ openssl_loop[item].private_key }}"
+#    format: pkcs8
+#  loop: "{{ openssl_loop.keys() | list  }}"
+#
+#- name: Create ssl csr
+#  community.crypto.openssl_csr:
+#    path: "{{ openssl_loop[item].csr }}"
+#    privatekey_path: "{{ openssl_loop[item].private_key }}"
+#    country_name: "RU"
+#    state_or_province_name : "RU"
+#    locality_name: "MOSCOW"
+#    organization_name: "test"
+#    organizational_unit_name: "unit"
+#    common_name: "{{ openssl_loop[item].subject_alt_name }}"
+#    mode: "777"
+#    subject_alt_name: "{{ openssl_loop[item].subject_alt_name }}"
+#  loop: "{{ openssl_loop.keys() | list  }}"
+#
+#- name: Generate CA certificate
+#  community.crypto.x509_certificate:
+#    path: "{{ openssl_loop[item].cert }}"
+#    ownca_path: "{{ openssl.root.cert }}"
+#    ownca_privatekey_path: "{{ openssl.root.private_key }}"
+#    csr_path: "{{ openssl_loop[item].csr }}"
+#    provider: ownca
+#  loop: "{{ openssl_loop.keys() | list  }}"
+#
 
-- name: Generate CA certificate
-  community.crypto.x509_certificate:
-    path: "{{ openssl_loop[item].cert }}"
-    ownca_path: "{{ openssl.root.cert }}"
-    ownca_privatekey_path: "{{ openssl.root.private_key }}"
-    csr_path: "{{ openssl_loop[item].csr }}"
-    provider: ownca
-  loop: "{{ openssl_loop.keys() | list  }}"
+#TESTTTTTTT
+#- name: Generate CA temp private key
+#  openssl_privatekey:
+#    path: "{{ openssl_loop[item].private_key_temp }}"
+#    size: 2048
+#    type: RSA
+#  loop: "{{ openssl_loop.keys() | list  }}"
+#
+#- name: Convert private key to PKCS8 format
+#  community.crypto.openssl_privatekey_convert:
+#    src_path: "{{ openssl_loop[item].private_key_temp }}"
+#    dest_path: "{{ openssl_loop[item].private_key }}"
+#    format: pkcs8
+#  loop: "{{ openssl_loop.keys() | list  }}"
+#
+#- name: Create ssl csr
+#  community.crypto.openssl_csr:
+#    path: "{{ openssl_loop[item].csr }}"
+#    privatekey_path: "{{ openssl_loop[item].private_key }}"
+#    country_name: "RU"
+#    state_or_province_name : "RU"
+#    locality_name: "MOSCOW"
+#    organization_name: "test"
+#    organizational_unit_name: "unit"
+#    common_name: "{{ openssl_loop[item].subject_alt_name }}"
+#    mode: "777"
+#    subject_alt_name: "{{ openssl_loop[item].subject_alt_name }}"
+#  loop: "{{ openssl_loop.keys() | list  }}"
+#
+#- name: Generate CA certificate
+#  community.crypto.x509_certificate:
+#    path: "{{ openssl_loop[item].cert }}"
+#    ownca_path: "{{ openssl.root.cert }}"
+#    ownca_privatekey_path: "{{ openssl.root.private_key }}"
+#    csr_path: "{{ openssl_loop[item].csr }}"
+#    provider: ownca
+#  loop: "{{ openssl_loop.keys() | list  }}"

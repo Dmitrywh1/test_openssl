@@ -10,22 +10,19 @@ openssl:
     csr: "{{ openssl_key_directory }}/admin.csr"
     cert: "{{ openssl_key_directory }}/admin.pem"
 
-openssl_loop:
-  client:
-    private_key_temp: "{{ openssl_key_directory }}/client-key-temp.pem"
-    private_key: "{{ openssl_key_directory }}/client-key.pem"
-    csr: "{{ openssl_key_directory }}/client.csr"
-    cert: "{{ openssl_key_directory }}/client.pem"
-    subject_alt_name: DNS:client.dns.a-record
-  os_nodes: |-
-    {% for item in groups['nodes'] -%}
-      node_{{ loop.index }}:
-        private_key_temp: "{{ openssl_key_directory }}/node{{ loop.index }}-key-temp.pem"
-        private_key: "{{ openssl_key_directory }}/node{{ loop.index }}-key.pem"
-        csr: "{{ openssl_key_directory }}/node{{ loop.index }}.csr"
-        cert: "{{ openssl_key_directory }}/node{{ loop.index }}.pem"
-        subject_alt_name: DNS:node{{ loop.index }}.dns.a-record
-    {%- endfor %}
+#openssl_loop:
+#  client:
+#    private_key_temp: "{{ openssl_key_directory }}/client-key-temp.pem"
+#    private_key: "{{ openssl_key_directory }}/client-key.pem"
+#    csr: "{{ openssl_key_directory }}/client.csr"
+#    cert: "{{ openssl_key_directory }}/client.pem"
+#    subject_alt_name: DNS:client.dns.a-record
+#  node_1:
+#    private_key_temp: "{{ openssl_key_directory }}/node1-key-temp.pem"
+#    private_key: "{{ openssl_key_directory }}/node1-key.pem"
+#    csr: "{{ openssl_key_directory }}/node1.csr"
+#    cert: "{{ openssl_key_directory }}/node1.pem"
+#    subject_alt_name: DNS:node1.dns.a-record
 
 
 

@@ -52,9 +52,9 @@
 #  loop_control:
 #    loop_var: item
 
-#- include_tasks: create.yml
-#  loop: "{{ openssl_items }}"
-#  loop_control:
-#    loop_var: item
+- include_tasks: loop.yml
+  loop: "{{ nodes }}"
+  loop_control:
+    loop_var: item
 
 
