@@ -31,6 +31,6 @@
     path: "{{ openssl_loop[item].cert }}"
     ownca_path: "{{ openssl.root.cert }}"
     ownca_privatekey_path: "{{ openssl.root.private_key }}"
-    csr_path: "{{ openssl.admin.csr }}"
+    csr_path: "{{ openssl_loop[item].csr }}"
     provider: ownca
   loop: "{{ openssl_loop.keys() | list  }}"
