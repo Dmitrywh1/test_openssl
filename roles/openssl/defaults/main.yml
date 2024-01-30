@@ -28,6 +28,11 @@ os_nodes: |-
           {{ item }}{% if not loop.last %}","{% endif %}
         {%- endfor %}
 
+os_nodes1: |-
+  {% for item in groups['nodes'] -%}
+    {{ loop.index }}{% if not loop.last %}","{% endif %}
+  {%- endfor %}
+
 nodes:
   - node1
   - node2
