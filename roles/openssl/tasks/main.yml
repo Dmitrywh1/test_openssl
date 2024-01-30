@@ -57,6 +57,11 @@
   loop_control:
     index_var: index
 
+- name: delete *temp.pem
+  file:
+    path: /home/whoisthere/*temp.pem
+    state: absent
+
 #- include_tasks: create.yml
 #  loop:
 #    - 1
