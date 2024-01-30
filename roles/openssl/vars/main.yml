@@ -16,4 +16,13 @@ openssl_loop:
     private_key: "{{ openssl_key_directory }}/client-key.pem"
     csr: "{{ openssl_key_directory }}/client.csr"
     cert: "{{ openssl_key_directory }}/client.pem"
-
+  node_1:
+    private_key_temp: "{{ openssl_key_directory }}/node1-key-temp.pem"
+    private_key: "{{ openssl_key_directory }}/node1-key.pem"
+    csr: "{{ openssl_key_directory }}/node1.csr"
+    cert: "{{ openssl_key_directory }}/node1.pem"
+  node_2:
+    private_key_temp: "{{ openssl_key_directory }}/node2-key-temp.pem"
+    private_key: "{{ openssl_key_directory }}/node2-key.pem"
+    csr: "{{ openssl_key_directory }}/node2.csr"
+    cert: "{{ openssl_key_directory }}/node2.pem"
