@@ -18,11 +18,11 @@ openssl_loop:
     cert: "{{ openssl_key_directory }}/client.pem"
     subject_alt_name: DNS:client.dns.a-record
   "node_{{ item.0 + 1 }}":
-      private_key_temp: "{{ openssl_key_directory }}/node{{ item.0 + 1 }}-key-temp.pem"
-      private_key: "{{ openssl_key_directory }}/node{{ item.0 + 1 }}-key.pem"
-      csr: "{{ openssl_key_directory }}/node{{ item.0 + 1 }}.csr"
-      cert: "{{ openssl_key_directory }}/node{{ item.0 + 1 }}.pem"
-      subject_alt_name: "DNS:node{{ item.0 + 1 }}.dns.a-record"
+    private_key_temp: "{{ openssl_key_directory }}/node{{ item.0 + 1 }}-key-temp.pem"
+    private_key: "{{ openssl_key_directory }}/node{{ item.0 + 1 }}-key.pem"
+    csr: "{{ openssl_key_directory }}/node{{ item.0 + 1 }}.csr"
+    cert: "{{ openssl_key_directory }}/node{{ item.0 + 1 }}.pem"
+    subject_alt_name: "DNS:node{{ item.0 + 1 }}.dns.a-record"
   with_indexed_items: "{{ nodes }}"
 
 
