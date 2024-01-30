@@ -62,6 +62,9 @@
     path: "{{ openssl_key_directory }}/node{{ loop.index }}-key-temp.pem"
     size: 2048
     type: RSA
-  loop: "{{ nodes }}"
+  loop:
+    - 1
+    - 2
+    - 3
 
 
