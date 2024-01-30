@@ -1,6 +1,6 @@
 - name: Generate CA temp private key
   openssl_privatekey:
-    path: "{{ openssl_key_directory }}/node{{ item }}-key-temp.pem"
+    path: "{{ openssl_key_directory }}/node{{ index + 1 }}-key-temp.pem"
     size: 2048
     type: RSA
 
