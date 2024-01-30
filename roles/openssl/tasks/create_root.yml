@@ -11,3 +11,34 @@
 #    selfsigned_not_after: 730d
     provider: selfsigned
 
+- name: Generate admin CA temp private key
+  openssl_privatekey:
+    path: "{{ openssl.admin.private_key_temp }}"
+    size: 2048
+    type: RSA
+
+- name: Convert private key to PKCS8 format
+  community.crypto.openssl_privatekey_convert:
+    src_path: "{{ openssl.admin.private_key_temp }}"
+    dest_path: "{{ openssl.admin.private_key }}"
+    format: pkcs8
+
+- name: Create ssl csr
+  community.crypto.openssl_csr:
+    path: "{{ openssl.admin.csr }}"
+    privatekey_path: "{{ openssl.admin.private_key }}"
+    country_name: "RU"
+    state_or_province_name : "RU"
+    locality_name: "MOSCOW"
+    organization_name: "test"
+    organizational_unit_name: "unit"
+    common_name: "A"
+    mode: "777"
+
+- name: Generate admin CA certificate
+  community.crypto.x509_certificate:
+    path: "{{ openssl.admin.cert }}"
+    privatekey_path: "{{ openssl.admin.private_key }}"
+    provider: selfsigned
+
+
