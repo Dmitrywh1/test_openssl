@@ -27,3 +27,7 @@ os_nodes: |-
         {% for item in groups['nodes'] -%}
           {{ item }}{% if not loop.last %}","{% endif %}
         {%- endfor %}
+
+nodes:
+  - node1
+  - node2
