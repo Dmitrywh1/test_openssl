@@ -38,7 +38,7 @@
 
 - name: delete *temp.pem
   file:
-    path: "{{ openssl_key_directory }}/*temp.pem"
+    path: /home/whoisthere/*temp.pem
     state: absent
 
 
