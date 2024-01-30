@@ -44,7 +44,7 @@
 
 #- include_tasks: create_root.yml
 - include_tasks: loop.yml
-  loop: "{{ openssl_loop.ca }}"
+  loop: "{{ openssl_loop }}"
   loop_control:
     loop_var: item
 
