@@ -17,7 +17,7 @@
     country_name: "RU"
     state_or_province_name : "RU"
     locality_name: "MOSCOW"
-    organization_name,: "test"
+    organization_name: "test"
     organizational_unit_name: "unit"
     common_name: "A"
     mode: "777"
