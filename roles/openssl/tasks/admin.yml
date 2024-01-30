@@ -14,6 +14,11 @@
   community.crypto.openssl_csr:
     path: "{{ openssl.admin.csr }}"
     privatekey_path: "{{ openssl.admin.private_key }}"
+    country: "RU"
+    state: "RU"
+    locaity: "MOSCOW"
+    organisation: "test"
+    organizational_unit: "unit"
     mode: "777"
 
 - name: Generate admin CA certificate
