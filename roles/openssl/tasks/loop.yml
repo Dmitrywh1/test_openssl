@@ -32,5 +32,6 @@
     ownca_privatekey_path: "{{ openssl.root.private_key }}"
     csr_path: "{{ openssl.admin.csr }}"
     provider: ownca
-    subject_alt_name: "{{ openssl_loop[item].subject_alt_name }}"
+    subject_alt_name:
+      - "{{ openssl_loop[item].subject_alt_name }}"
   loop: "{{ openssl_loop.keys() | list  }}"

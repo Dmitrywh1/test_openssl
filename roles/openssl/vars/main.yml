@@ -29,3 +29,5 @@ openssl_loop:
     csr: "{{ openssl_key_directory }}/node2.csr"
     cert: "{{ openssl_key_directory }}/node2.pem"
     subject_alt_name: node2.dns.a-record
+
+
