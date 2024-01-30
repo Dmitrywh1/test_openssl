@@ -1,13 +1,13 @@
 - name: Generate root CA private key
   openssl_privatekey:
-    path: "{{ openssl_root.private_key }}"
+    path: "{{ openssl.root.private_key }}"
     size: 2048
     type: RSA
 
 - name: Generate root CA certificate
   community.crypto.x509_certificate:
-    path: "{{ openssl_root.cert }}"
-    privatekey_path: "{{ openssl_root.private_key }}"
+    path: "{{ openssl.root.cert }}"
+    privatekey_path: "{{ openssl.root.private_key }}"
 #    selfsigned_not_after: 730d
     provider: selfsigned
 
