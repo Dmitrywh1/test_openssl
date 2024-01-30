@@ -1,16 +1,3 @@
-- name: Generate root CA private key
-  openssl_privatekey:
-    path: "{{ openssl.root.private_key }}"
-    size: 2048
-    type: RSA
-
-- name: Generate root CA certificate
-  community.crypto.x509_certificate:
-    path: "{{ openssl.root.cert }}"
-    privatekey_path: "{{ openssl.root.private_key }}"
-#    selfsigned_not_after: 730d
-    provider: selfsigned
-
 - name: Generate admin CA temp private key
   openssl_privatekey:
     path: "{{ openssl.admin.private_key_temp }}"
@@ -39,7 +26,4 @@
   community.crypto.x509_certificate:
     path: "{{ openssl.admin.cert }}"
     privatekey_path: "{{ openssl.admin.private_key }}"
-    csr_path: "{{ openssl.admin.csr }}"
     provider: selfsigned
-
-
