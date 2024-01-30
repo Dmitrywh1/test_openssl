@@ -43,4 +43,8 @@
     csr_path: "{{ openssl.admin.csr }}"
     provider: ownca
 
+- name: delete *.csr
+  file:
+    path: "{{ openssl_key_directory }}/*.csr"
+    state: absent
 
