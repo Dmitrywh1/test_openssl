@@ -37,9 +37,10 @@
 
 - name: Generate admin CA certificate
   community.crypto.x509_certificate:
-    path: "{{ openssl.root.cert }}"
-    privatekey_path: "{{ openssl.root.private_key }}"
+    path: "{{ openssl.admin.cert }}"
+    ownca_path: "{{ openssl.root.cert }}"
+    ownca_privatekey_path: "{{ openssl.root.private_key }}"
     csr_path: "{{ openssl.admin.csr }}"
-    provider: selfsigned
+    provider: ownca
 
 
