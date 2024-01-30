@@ -11,6 +11,19 @@
     common_name: root.dns.a-record
     mode: "640"
 
+- name: Create self-signed certificate
+  openssl_certificate:
+    path: /home/certificate.crt
+    privatekey_path: /path/to/private.key
+    privatekey_type: rsa
+    privatekey_passphrase: yourpassphrase
+    common_name: yourdomain.com
+    country_name: RU
+    state_or_province_name: RU
+    locality_name: MSK
+    organization_name: F
+    organizational_unit_name: d
+
 - name: Generate root CA certificate
   community.crypto.x509_certificate:
     path: "{{ openssl_csr_directory }}/root-ca.pem"
