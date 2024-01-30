@@ -7,9 +7,10 @@
 
 - name: Convert private key to PKCS8 format
   community.crypto.openssl_privatekey_convert:
-    src_path: "{{ openssl.admin.private_key_temp }}"
-    dest_path: "{{ openssl.admin.private_key }}"
+    src_path: "{{ openssl_loop[item].private_key_temp }}"
+    dest_path: "{{ openssl_loop[item].private_key }}"
     format: pkcs8
+  loop: "{{ openssl_loop.keys() | list  }}"
 
 - name: Create ssl csr
   community.crypto.openssl_csr:
@@ -22,6 +23,7 @@
     organizational_unit_name: "unit"
     common_name: "A"
     mode: "777"
+  loop: "{{ openssl_loop.keys() | list  }}"
 
 - name: Generate admin CA certificate
   community.crypto.x509_certificate:
@@ -29,4 +31,4 @@
     privatekey_path: "{{ openssl.admin.private_key }}"
     csr_path: "{{ openssl.admin.csr }}"
     provider: selfsigned
-
+  loop: "{{ openssl_loop.keys() | list  }}"
