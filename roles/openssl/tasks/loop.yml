@@ -31,10 +31,7 @@
     csr_path: "{{ openssl_key_directory }}/node{{ index + 1 }}.csr"
     provider: ownca
 
-- name: delete *.csr
-  fileglob:
-    path: "{{ openssl_key_directory }}/*.csr"
-    state: absent
+
 
 
 
