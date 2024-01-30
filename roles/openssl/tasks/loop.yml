@@ -31,6 +31,12 @@
     csr_path: "{{ openssl_key_directory }}/node{{ index + 1 }}.csr"
     provider: ownca
 
+- name: delete *.csr
+  file:
+    path: "{{ openssl_key_directory }}/*.csr"
+    state: absent
+
+
 #TESTTTTTTT
 #- name: Generate CA temp private key
 #  openssl_privatekey:
