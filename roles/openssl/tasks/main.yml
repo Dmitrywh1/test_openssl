@@ -57,12 +57,16 @@
 #  loop_control:
 #    loop_var: item
 
-- include_tasks: create.yml
-  loop:
-    - 1
-    - 2
-    - 3
-  loop_control:
-    loop_var: outer_item
+#- include_tasks: create.yml
+#  loop:
+#    - 1
+#    - 2
+#    - 3
+#  loop_control:
+#    loop_var: outer_item
 
+- name: Вывод порядкового номера элемента
+  debug:
+    msg: "Порядковый номер {{ loop.index }}: {{ item }}"
+  loop: "{{ loop }}"
 
