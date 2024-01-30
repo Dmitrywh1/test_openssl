@@ -8,6 +8,7 @@
   community.crypto.openssl_pkcs12:
     action: export
     path: "{{ openssl.admin.private_key }}"
+    friendly_name: admin
     privatekey_path: "{{ openssl.admin.private_key_temp }}"
     state: present
 
