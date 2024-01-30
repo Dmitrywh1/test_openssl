@@ -1,6 +1,6 @@
 - name: Generate admin CA temp private key
   openssl_privatekey:
-    path: "{{ openssl.admin.private_key_temp }}"
+    path: "{{ item.private_key_temp }}"
     size: 2048
     type: RSA
 
@@ -26,4 +26,6 @@
   community.crypto.x509_certificate:
     path: "{{ openssl.admin.cert }}"
     privatekey_path: "{{ openssl.admin.private_key }}"
+    csr_path: "{{ openssl.admin.csr }}"
     provider: selfsigned
+

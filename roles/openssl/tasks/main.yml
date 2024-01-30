@@ -42,8 +42,11 @@
 #    owner: "{{ openssl_file_owner }}"
 #    group: "{{ openssl_file_group }}"
 
-- include_tasks: create_root.yml
-#- include_tasks: admin.yml
+#- include_tasks: create_root.yml
+- include_tasks: loop.yml
+  loop: "{{ openssl_loop.ca }}"
+  loop_control:
+    loop_var: item
 
 #- include_tasks: create.yml
 #  loop: "{{ openssl_items }}"

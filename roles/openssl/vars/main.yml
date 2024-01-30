@@ -53,7 +53,7 @@ openssl:
 
 openssl_loop:
   - name: client
-    definition:
+    ca:
       private_key_temp: "{{ openssl_key_directory }}/client-key-temp.pem"
       private_key: "{{ openssl_key_directory }}/client-key.pem"
       csr: "{{ openssl_key_directory }}/client.csr"
