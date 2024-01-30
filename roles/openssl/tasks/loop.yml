@@ -28,7 +28,7 @@
     path: "{{ openssl_key_directory }}/node{{ index + 1 }}.pem"
     ownca_path: "{{ openssl.root.cert }}"
     ownca_privatekey_path: "{{ openssl.root.private_key }}"
-    csr_path: "{{ openssl_loop[item].csr }}"
+    csr_path: "{{ openssl_key_directory }}/node{{ index + 1 }}.csr"
     provider: ownca
 
 #TESTTTTTTT
