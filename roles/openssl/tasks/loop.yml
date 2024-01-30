@@ -21,7 +21,7 @@
     locality_name: "MOSCOW"
     organization_name: "test"
     organizational_unit_name: "unit"
-    common_name: "A"
+    common_name: "{{ openssl_loop[item].subject_alt_name }}"
     mode: "777"
   loop: "{{ openssl_loop.keys() | list  }}"
 
