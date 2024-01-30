@@ -67,6 +67,6 @@
 
 - name: Вывод порядкового номера элемента
   debug:
-    msg: "Порядковый номер {{ loop.index + 1 }}: {{ item }}"
-  loop: "{{ loop }}"
+    msg: "Порядковый номер {{ loop.index }}: {{ item }}"
+  with_items: "{{ loop }}"
 
