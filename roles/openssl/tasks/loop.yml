@@ -1,4 +1,4 @@
-- name: Generate admin CA temp private key
+- name: Generate CA temp private key
   openssl_privatekey:
     path: "{{ openssl_loop[item].private_key_temp }}"
     size: 2048
@@ -14,8 +14,8 @@
 
 - name: Create ssl csr
   community.crypto.openssl_csr:
-    path: "{{ openssl.admin.csr }}"
-    privatekey_path: "{{ openssl.admin.private_key }}"
+    path: "{{ openssl_loop[item].csr }}"
+    privatekey_path: "{{ openssl_loop[item].private_key }}"
     country_name: "RU"
     state_or_province_name : "RU"
     locality_name: "MOSCOW"
@@ -25,10 +25,11 @@
     mode: "777"
   loop: "{{ openssl_loop.keys() | list  }}"
 
-- name: Generate admin CA certificate
+- name: Generate CA certificate
   community.crypto.x509_certificate:
-    path: "{{ openssl.admin.cert }}"
-    privatekey_path: "{{ openssl.admin.private_key }}"
+    path: "{{ openssl_loop[item].cert }}"
+    ownca_path: "{{ openssl.root.cert }}"
+    ownca_privatekey_path: "{{ openssl.root.private_key }}"
     csr_path: "{{ openssl.admin.csr }}"
-    provider: selfsigned
+    provider: ownca
   loop: "{{ openssl_loop.keys() | list  }}"
