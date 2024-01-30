@@ -3,7 +3,7 @@
     path: "{{ openssl_loop[item].private_key_temp }}"
     size: 2048
     type: RSA
-  loop: "{{ openssl_loop.keys() }}"
+  loop: "{{ openssl_loop.keys() | list  }}"
 
 - name: Convert private key to PKCS8 format
   community.crypto.openssl_privatekey_convert:
