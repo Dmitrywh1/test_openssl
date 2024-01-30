@@ -17,7 +17,7 @@
   community.crypto.openssl_csr:
     path: "{{ openssl.admin.csr }}"
     privatekey_path: "{{ openssl.admin.private_key }}"
-    mode: "640"
+    mode: "777"
 
 - name: Generate root CA certificate
   community.crypto.x509_certificate:
