@@ -70,4 +70,4 @@
     msg: "Index: {{ index }} - Item: {{ item }}"
   loop: "{{ my_list }}"
   loop_control:
-    ndex_var: index
+    index_var: index
