@@ -42,7 +42,7 @@
 #    owner: "{{ openssl_file_owner }}"
 #    group: "{{ openssl_file_group }}"
 
-#- include_tasks: create_root.yml
+- include_tasks: create_root.yml
 #- include_tasks: loop.yml
 
 #- name: test
@@ -56,13 +56,6 @@
 #  loop: "{{ nodes }}"
 #  loop_control:
 #    index_var: index
-
-- name: delete *.csr
-  file:
-    path: "{{ item.path }}"
-    state: absent
-  with_fileglob:
-    - "{{ openssl_key_directory }}/*.csr"
 
 
 #- include_tasks: create.yml

@@ -14,10 +14,10 @@
 openssl_key_directory: "/home/whoisthere"
 
 # This directory stores public, non-persistent objects. (csr)
-openssl_csr_directory: "/home/whoisthere"
+openssl_csr_directory: "/home/whoisthere/csr"
 
 # This directory stores public, persistent objects. (crt)
-openssl_crt_directory: "/home/whoisthere"
+openssl_temp_directory: "/home/whoisthere/temp"
 
 # You can change the owner and group of file created by this role.
 openssl_file_owner: root
