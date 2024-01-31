@@ -13,11 +13,11 @@
     privatekey_path: /etc/ssl/private/self_signed.key
     privatekey_passphrase: mypassphrase
     common_name: example.com
-    country_name: US
-    state_or_province_name: California
-    locality_name: San Francisco
-    organization_name: Example Inc.
-    organizational_unit_name: IT
+    country: US
+    state: California
+    locality: San Francisco
+    organization: Example Inc.
+    organizational_unit: IT
     validity_start: -1
     validity_end: 365
 
