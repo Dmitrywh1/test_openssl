@@ -35,4 +35,5 @@
 
 - name: test
   debug:
-    msg: "{{ os_nodes }}"
+    msg: "{{ os_nodes }} and {{ os_nodes1 }}"
+
