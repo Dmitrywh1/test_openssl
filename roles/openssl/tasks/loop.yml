@@ -21,7 +21,7 @@
     locality_name: "MOSCOW"
     organization_name: "test"
     organizational_unit_name: "unit"
-    common_name: "DNS:node{{ index + 1 }}.dns.a-record"
+    common_name: "node{{ index + 1 }}.dns.a-record"
     mode: "777"
     subject_alt_name: "DNS:node{{ index + 1 }}.dns.a-record"
 
