@@ -38,18 +38,18 @@
 
 - include_tasks: create_root.yml
 
-#- include_tasks: loop.yml
-#  loop: "{{ nodes }}"
-#  loop_control:
-#    index_var: index
+- include_tasks: loop.yml
+  loop: "{{ nodes }}"
+  loop_control:
+    index_var: index
 
-#- name: delete csr and temp dir
-#  ansible.builtin.file:
-#    path: "{{ item }}"
-#    state: absent
-#  loop:
-#    - "{{ openssl_temp_directory }}"
-#    - "{{ openssl_csr_directory }}"
+- name: delete csr and temp dir
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "{{ openssl_temp_directory }}"
+    - "{{ openssl_csr_directory }}"
 
 
 #- include_tasks: loop.yml
