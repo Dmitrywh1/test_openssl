@@ -9,7 +9,7 @@
 
 - name: Create ssl csr
   community.crypto.openssl_csr:
-    path: "{{ openssl.admin.csr }}"
+    path: "{{ openssl.root.csr }}"
     privatekey_path: "{{ openssl.root.private_key }}"
     country_name: "RU"
     state_or_province_name : "RU"
