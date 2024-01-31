@@ -7,28 +7,26 @@
     size: 2048
     type: RSA
 
-- name: Создание самоподписанного сертификата
-  openssl_certificate:
-    path: /etc/ssl/certs/self_signed.crt
-    privatekey_path: /etc/ssl/private/self_signed.key
-    privatekey_passphrase: mypassphrase
-    common_name: example.com
-    country: US
-    state: California
-    locality: San Francisco
-    organization: Example Inc.
-    organizational_unit: IT
-    validity_start: -1
-    validity_end: 365
+- name: Create ssl csr
+  community.crypto.openssl_csr:
+    path: "{{ openssl.admin.csr }}"
+    privatekey_path: "{{ openssl.root.private_key }}"
+    country_name: "RU"
+    state_or_province_name : "RU"
+    locality_name: "MOSCOW"
+    organization_name: "test"
+    organizational_unit_name: "unit"
+    common_name: "{{ openssl.root.dns }}"
+    mode: "777"
 
+- name: Generate root CA certificate
+  community.crypto.x509_certificate:
+    path: "{{ openssl.root.cert }}"
+    privatekey_path: "{{ openssl.root.private_key }}"
+    csr_path: "{{ openssl.root.csr }}"
+#    selfsigned_not_after: 730d
+    provider: selfsigned
 
-#- name: Generate root CA certificate
-#  community.crypto.x509_certificate:
-#    path: "{{ openssl.root.cert }}"
-#    privatekey_path: "{{ openssl.root.private_key }}"
-##    selfsigned_not_after: 730d
-#    provider: selfsigned
-#    common_name: root.dns.a-record
 
 # Admin
 - name: Generate admin CA temp private key

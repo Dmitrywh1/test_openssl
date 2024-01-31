@@ -3,7 +3,9 @@
 openssl:
   root:
     private_key: "{{ openssl_key_directory }}/root-ca-key.pem"
+    csr: "{{ openssl_csr_directory }}/root.csr"
     cert: "{{ openssl_key_directory }}/root-ca.pem"
+    dns: root.dns.a-record
   admin:
     private_key_temp: "{{ openssl_temp_directory }}/admin-key-temp.pem"
     private_key: "{{ openssl_key_directory }}/admin-key.pem"
