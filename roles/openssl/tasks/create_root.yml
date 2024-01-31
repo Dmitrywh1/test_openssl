@@ -12,12 +12,11 @@
     path: "{{ openssl.root.cert }}"
     privatekey_path: "{{ openssl.root.private_key }}"
     common_name: root.dns.a-record
-    country: RU
-    state: RU
-    locality: MOSCOW
-    organization: google
-    organizational_unit: UNIT
-    validity_days: 730
+    country_name: "RU"
+    state_or_province_name: "RU"
+    locality_name: "MOSCOW"
+    organization_name: "test"
+    organizational_unit_name: "unit"
     provider: selfsigned
 
 #- name: Generate root CA certificate
