@@ -7,17 +7,20 @@
     size: 2048
     type: RSA
 
-- name: Generate a self-signed X.509 certificate
+- name: Создание самоподписанного сертификата
   openssl_certificate:
-    path: "{{ openssl.root.cert }}"
-    privatekey_path: "{{ openssl.root.private_key }}"
-    common_name: root.dns.a-record
-    country_name: "RU"
-    state_or_province_name: "RU"
-    locality_name: "MOSCOW"
-    organization_name: "test"
-    organizational_unit_name: "unit"
-    provider: selfsigned
+    path: /etc/ssl/certs/self_signed.crt
+    privatekey_path: /etc/ssl/private/self_signed.key
+    privatekey_passphrase: mypassphrase
+    common_name: example.com
+    country_name: US
+    state_or_province_name: California
+    locality_name: San Francisco
+    organization_name: Example Inc.
+    organizational_unit_name: IT
+    validity_start: -1
+    validity_end: 365
+
 
 #- name: Generate root CA certificate
 #  community.crypto.x509_certificate:
