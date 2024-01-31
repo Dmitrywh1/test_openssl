@@ -35,6 +35,6 @@ os_nodes1: |-
 
 nodes:
   - node1
-
+os_nodes2: "{{ groups['nodes'] | list }}"
 
 
