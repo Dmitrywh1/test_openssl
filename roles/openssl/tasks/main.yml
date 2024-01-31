@@ -1,22 +1,4 @@
 ---
-# tasks file for openssl
-
-#- name: Import assert.yml
-#  ansible.builtin.import_tasks:
-#    file: assert.yml
-#  run_once: yes
-#  delegate_to: localhost
-#
-#- name: Install requirements
-#  ansible.builtin.package:
-#    name: "{{ openssl_requirements }}"
-#    state: present
-#
-#- name: Install pip packages
-#  ansible.builtin.pip:
-#    name: "{{ openssl_pip_packages }}"
-#  when:
-#    - openssl_pip_packages | length > 0
 
 - name: Create key directory
   ansible.builtin.file:
@@ -50,14 +32,3 @@
   loop:
     - "{{ openssl_temp_directory }}"
     - "{{ openssl_csr_directory }}"
-
-
-#- include_tasks: loop.yml
-
-#- name: test
-#  debug:
-#    msg: "{{ openssl_loop.os_nodes }}"
-#  loop: "{{ openssl_loop }}"
-#  loop_control:
-#    loop_var: item
-
