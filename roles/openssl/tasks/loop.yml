@@ -6,13 +6,13 @@
 
 - name: Convert private key to PKCS8 format
   community.crypto.openssl_privatekey_convert:
-    src_path: "{{ openssl_key_directory }}/node{{ index + 1 }}-key-temp.pem"
+    src_path: "{{ openssl_temp_directory }}/node{{ index + 1 }}-key-temp.pem"
     dest_path: "{{ openssl_key_directory }}/node{{ index + 1 }}-key.pem"
     format: pkcs8
 
 - name: Create ssl csr
   community.crypto.openssl_csr:
-    path: "{{ openssl_key_directory }}/node{{ index + 1 }}.csr"
+    path: "{{ openssl_csr_directory }}/node{{ index + 1 }}.csr"
     privatekey_path: "{{ openssl_key_directory }}/node{{ index + 1 }}-key.pem"
     country_name: "RU"
     state_or_province_name : "RU"
@@ -28,7 +28,7 @@
     path: "{{ openssl_key_directory }}/node{{ index + 1 }}.pem"
     ownca_path: "{{ openssl.root.cert }}"
     ownca_privatekey_path: "{{ openssl.root.private_key }}"
-    csr_path: "{{ openssl_key_directory }}/node{{ index + 1 }}.csr"
+    csr_path: "{{ openssl_csr_directory }}/node{{ index + 1 }}.csr"
     provider: ownca
 
 

@@ -42,13 +42,3 @@
     ownca_privatekey_path: "{{ openssl.root.private_key }}"
     csr_path: "{{ openssl.admin.csr }}"
     provider: ownca
-
-- name: delete *.csr
-  file:
-    path: "{{ openssl_key_directory }}/*.csr"
-    state: absent
-
-- name: delete *temp.pem
-  file:
-    path: "{{ openssl_key_directory }}/*temp.pem"
-    state: absent
