@@ -1,3 +1,5 @@
+---
+
 - name: Generate CA temp private key
   openssl_privatekey:
     path: "{{ openssl_temp_directory }}/node{{ index + 1 }}-key-temp.pem"
